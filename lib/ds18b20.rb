@@ -1,4 +1,7 @@
 module Temperature
+  def get_thermometers
+    Dir["/sys/bus/w1/devices/28*"]
+  end
   class DS18B20
     attr_accessor :name, :hardware_id, :device_path
     def initialize options = {}
