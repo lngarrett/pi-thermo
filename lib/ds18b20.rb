@@ -2,11 +2,16 @@ module Temperature
     DEVICE_PATH = "/sys/bus/w1/devices"
     DEVICES = %x( ls /sys/bus/w1/devices | grep 28 ).split
   class DS18B20
+    @@array = Array.new
     attr_accessor :name, :hardware_id, :device_path
     def initialize options = {}
       @name = options[:name]
       @device_path = options[:device_path] || DEVICE_PATH
       @hardware_id = options[:hardware_id] || find_hardware_id
+    end
+
+    def self.all_instances
+      @@array
     end
 
     def find_hardware_id
