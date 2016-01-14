@@ -11,7 +11,7 @@ module Temperature
       @@array << self
     end
 
-    def self.all_instances
+    def self.all_meters
       @@array
     end
 
