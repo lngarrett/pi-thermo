@@ -18,10 +18,20 @@ Temperature::DS18B20.all_meters.each do |meter|
   puts meter.read
 end
 
-data = {
-  x: [now],
-  y: [Temperature::DS18B20.all_meters[0].read]
-}
+data = [
+  {
+    x: [now],
+    y: [Temperature::DS18B20.all_meters[0].read]
+    name: Temperature::DS18B20.all_meters[0].hardware_id
+    marker: { color: 'rgb(55, 83, 109)' }
+  },
+  {
+    x: [now],
+    y: [Temperature::DS18B20.all_meters[1].read]
+    name: Temperature::DS18B20.all_meters[1].hardware_id
+    marker: { color: 'rgb(26, 118, 255)' }
+  },
+]
 
 args = {
   filename: 'temperature',
