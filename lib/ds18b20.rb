@@ -1,12 +1,11 @@
 module Temperature
-  def get_thermometers
-    Dir["/sys/bus/w1/devices/28*"]
-  end
+    DEVICE_PATH = "/sys/bus/w1/devices"
+    DEVICES = %x( ls /sys/bus/w1/devices | grep 28 ).split
   class DS18B20
     attr_accessor :name, :hardware_id, :device_path
     def initialize options = {}
       @name = options[:name]
-      @device_path = options[:device_path] || "/sys/bus/w1/devices"
+      @device_path = options[:device_path] || DEVICE_PATH
       @hardware_id = options[:hardware_id] || find_hardware_id
     end
 
