@@ -9,26 +9,25 @@ end
 
 plotly = PlotLy.new('LoganGarrett', ENV['plotly_api_key'])
 
-# Setup an array of thermometers
-Temperature::DEVICES.each do |device|
-  Temperature::DS18B20.new(hardware_id: device)
-end
+
+Temperature::DS18B20.new(hardware_id: '28-00000520ab0c', name: 'Yeti Colster')
+Temperature::DS18B20.new(hardware_id: '28-0000052100e5', name: 'Thermos Can Insulator')
 
 Temperature::DS18B20.all_meters.each do |meter|
-  puts meter.read
+  puts "#{meter.name} - #{meter.read}"
 end
 
 data = [
   {
     x: [now],
     y: [Temperature::DS18B20.all_meters[0].read],
-    name: Temperature::DS18B20.all_meters[0].hardware_id,
+    name: Temperature::DS18B20.all_meters[0].name,
     marker: { color: 'rgb(55, 83, 109)' }
   },
   {
     x: [now],
     y: [Temperature::DS18B20.all_meters[1].read],
-    name: Temperature::DS18B20.all_meters[1].hardware_id,
+    name: Temperature::DS18B20.all_meters[1].name,
     marker: { color: 'rgb(26, 118, 255)' }
   },
 ]
