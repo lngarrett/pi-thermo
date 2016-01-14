@@ -21,14 +21,14 @@ end
 data = [
   {
     x: [now],
-    y: [Temperature::DS18B20.all_meters[0].read]
-    name: Temperature::DS18B20.all_meters[0].hardware_id
+    y: [Temperature::DS18B20.all_meters[0].read],
+    name: Temperature::DS18B20.all_meters[0].hardware_id,
     marker: { color: 'rgb(55, 83, 109)' }
   },
   {
     x: [now],
-    y: [Temperature::DS18B20.all_meters[1].read]
-    name: Temperature::DS18B20.all_meters[1].hardware_id
+    y: [Temperature::DS18B20.all_meters[1].read],
+    name: Temperature::DS18B20.all_meters[1].hardware_id,
     marker: { color: 'rgb(26, 118, 255)' }
   },
 ]
