@@ -6,5 +6,5 @@ Temperature::DEVICES.each do |device|
 end
 
 Temperature::DS18B20.all_meters.each do |meter|
-  meter.read
+  puts meter.read
 end
