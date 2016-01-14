@@ -8,6 +8,7 @@ module Temperature
       @name = options[:name]
       @device_path = options[:device_path] || DEVICE_PATH
       @hardware_id = options[:hardware_id] || find_hardware_id
+      @@array << self
     end
 
     def self.all_instances
