@@ -9,7 +9,7 @@ end
 
 plotly = PlotLy.new('LoganGarrett', ENV['plotly_api_key'])
 
-Temperature::DEVIES.each |device| do
+Temperature::DEVICES.each |device| do
   Temperature::DS18B20.new(hardware_id: 'device', name: 'Yeti Colster')
 end
 
