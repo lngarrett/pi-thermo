@@ -1,0 +1,20 @@
+- tag_number: 1
+  active      : true
+  hardware_id : 28-00000520ab0c
+  name        : Yeti Colster
+- tag_number: 2
+  active      : true
+  hardware_id : 28-0000052100e5
+  name        : Yeti Lowball (No Lid)
+- tag_number: 3
+  active      : true
+  hardware_id : 28-0315913eb9ff
+  name        : Thermos Can Insulator
+- tag_number: 4
+  active      : true
+  hardware_id : 28-0315913f6dff
+  name        : Ambient Air
+- tag_number: 5
+  active      : false
+  hardware_id : 28-03159149daff
+  name        : Unused

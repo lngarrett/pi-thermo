@@ -2,6 +2,7 @@
 require 'plotly'
 require 'time'
 require './lib/ds18b20.rb'
+require 'yaml'
 
 def now
   Time.parse(Time.now.to_s).strftime("%Y-%m-%d %H:%M:%S")
@@ -9,12 +10,22 @@ end
 
 plotly = PlotLy.new('LoganGarrett', ENV['plotly_api_key'])
 
-Temperature::DEVICES.each do |device|
-  Temperature::DS18B20.new(hardware_id: device, name: 'Yeti Colster')
+def file_config
+  meters = YAML.load_file('meters.yaml')
+  meters.each do |meter|
+    if meter['active'] Temperature::DS18B20.new(hardware_id: meter['hardware_id'], name: meter['name'], tag_number: meter['tag_number'])
 end
 
-Temperature::DS18B20.all_meters.each do |meter|
-  puts "#{meter.hardware_id} - temp: #{meter.read}"
+def auto_config
+  Temperature::DEVICES.each do |device|
+    Temperature::DS18B20.new(hardware_id: device, name: 'Yeti Colster')
+  end
+end
+
+def read_scopes
+  Temperature::DS18B20.all_meters.each do |meter|
+    puts "#{meter.hardware_id} - temp: #{meter.read}"
+  end
 end
 
 def two_scope
