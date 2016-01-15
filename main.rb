@@ -41,12 +41,16 @@ def log_data
     reading = "&meter#{meter.tag_number}=#{meter.read}"
     data_string << reading
   end
-  response = RestClient.get data_string
+  begin
+    response = RestClient.get data_string
+  rescue => e
+    puts e.response
+  end
   puts response.body
 end
 
 file_config
 loop do
   log_data
-  sleep 30
+  sleep 300
 end
