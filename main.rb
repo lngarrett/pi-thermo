@@ -41,7 +41,8 @@ def log_data
     reading = "&meter#{meter.tag_number}=#{meter.read}"
     data_string << reading
   end
-  RestClient.get data_string
+  response = RestClient.get data_string
+  puts response.body
 end
 
 file_config
