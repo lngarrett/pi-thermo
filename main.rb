@@ -40,13 +40,11 @@ def log_data
   Temperature::DS18B20.all_meters.each do |meter|
     reading = "&meter#{meter.tag_number}=#{meter.read}"
     data_string << reading
-    puts data_string
   end
   RestClient.get data_string
 end
 
 file_config
-read_scopes
 loop do
   log_data
   sleep 30
