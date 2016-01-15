@@ -41,10 +41,11 @@ def log_data
   end
   begin
     response = RestClient.get data_string
+    puts response.body
   rescue => e
     puts e.response
   end
-  puts response.body
+
 end
 
 file_config
