@@ -6,7 +6,7 @@ module Temperature
     attr_accessor :name, :hardware_id, :tag_number, :device_path
     def initialize options = {}
       @name        = options[:name]        || options[:hardware_id]
-      @tag_number         = options[:tag_number]  || options[:hardware_id]
+      @tag_number  = options[:tag_number]  || options[:hardware_id]
       @device_path = options[:device_path] || DEVICE_PATH
       @hardware_id = options[:hardware_id] || find_hardware_id
       @@array     << self
