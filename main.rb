@@ -3,13 +3,12 @@ require 'time'
 require './lib/ds18b20.rb'
 require 'yaml'
 require 'rest-client'
+
 def now
   #2016-01-15T02:13:00.388Z
   t = Time.now
   t.iso8601
 end
-
-#plotly = PlotLy.new('LoganGarrett', ENV['plotly_api_key'])
 
 def file_config
   meters = YAML.load_file('meters.yaml')
