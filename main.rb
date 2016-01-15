@@ -8,7 +8,7 @@ def now
   Time.parse(Time.now.to_s).strftime("%Y-%m-%d %H:%M:%S")
 end
 
-plotly = PlotLy.new('LoganGarrett', ENV['plotly_api_key'])
+#plotly = PlotLy.new('LoganGarrett', ENV['plotly_api_key'])
 
 def file_config
   meters = YAML.load_file('meters.yaml')
@@ -68,3 +68,6 @@ def two_scope
     sleep 60
   end
 end
+
+file_config
+read_scopes
