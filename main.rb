@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require 'plotly'
 require 'time'
 require './lib/ds18b20.rb'
 require 'yaml'
