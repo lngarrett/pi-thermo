@@ -74,10 +74,10 @@ end
 # end
 
 def log_data
-  endpoint = 'http://data.sparkfun.com/input/'
+  endpoint = 'http://data.sparkfun.com/input'
   public_key = 'MGWW688WnRF6wgd8Zgz9'
   private_key = ENV['sparkfun_private_key']
-  data_string = "#{endpoint}/input/#{public_key}?private_key=#{private_key}&timestamp=#{now}"
+  data_string = "#{endpoint}/#{public_key}?private_key=#{private_key}&timestamp=#{now}"
 
   Temperature::DS18B20.all_meters.each do |meter|
     reading = "&sensor#{meter.tag_number}=#{meter.read}"
