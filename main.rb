@@ -14,6 +14,7 @@ def file_config
   meters = YAML.load_file('meters.yaml')
   meters.each do |meter|
     Temperature::DS18B20.new(hardware_id: meter['hardware_id'], name: meter['name'], tag_number: meter['tag_number']) if meter['active']
+  end
 end
 
 def auto_config
